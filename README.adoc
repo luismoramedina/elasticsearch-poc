@@ -1,10 +1,16 @@
 = Elastic films
 
-curl -XPOST "http://0:9200/cinema/film/1" -d "{ \"title\" : \"fight club\"}"
-curl -XPOST "http://0:9200/cinema/film/2" -d "{ \"title\" : \"blade runner\"}"
-curl -XPOST "http://0:9200/cinema/film/3" -d "{ \"title\" : \"blade\"}"
-curl -XPOST "http://0:9200/cinema/film/4" -d "{ \"title\" : \"alien\"}"
-curl -XPOST "http://0:9200/cinema/film/6" -d "{ \"title\" : \"alien 3\"}"
-curl -XPOST "http://0:9200/cinema/film/5" -d "{ \"title\" : \"Aliens\"}"
-curl -XPOST "http://0:9200/cinema/film/6" -d "{ \"title\" : \"Star wars\"}"
-curl -XPOST "http://0:9200/cinema/film/7" -d "{ \"title\" : \"Star trek\"}"
+== Run elastic
+
+docker run -d -p 9200:9200 -p 9300:9300 --name elas elasticsearch -Etransport.host=0.0.0.0 -Ediscovery.zen.minimum_master_nodes=1
+
+== Feed database
+
+. curl -XPOST "http://0:9200/cinema/film/1" -d "{ \"title\" : \"fight club\"}"
+. curl -XPOST "http://0:9200/cinema/film/2" -d "{ \"title\" : \"blade runner\"}"
+. curl -XPOST "http://0:9200/cinema/film/3" -d "{ \"title\" : \"blade\"}"
+. curl -XPOST "http://0:9200/cinema/film/4" -d "{ \"title\" : \"alien\"}"
+. curl -XPOST "http://0:9200/cinema/film/6" -d "{ \"title\" : \"alien 3\"}"
+. curl -XPOST "http://0:9200/cinema/film/5" -d "{ \"title\" : \"Aliens\"}"
+. curl -XPOST "http://0:9200/cinema/film/6" -d "{ \"title\" : \"Star wars\"}"
+. curl -XPOST "http://0:9200/cinema/film/7" -d "{ \"title\" : \"Star trek\"}"
